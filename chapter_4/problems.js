@@ -35,7 +35,7 @@ function reverseArrayInPlace(array) {
     let holder = [...array];
     for(num in array) {
         array.pop();
-        array.unshift(holder[num]);
+        array.unshift(holder[num]+1);
     }
 }
 
