@@ -127,7 +127,7 @@ function deepEqual(a, b) {
     else {
         if (a !== b) {
             return false;
-        }
+        } 
     }
     return true;
 }
