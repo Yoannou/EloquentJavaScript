@@ -31,6 +31,7 @@ class Vec {
 /* A set contains a selection of UNIQUE values, no duplicates */
 
 class Group {
+
     constructor(){
         this.group = [];
     }
@@ -53,7 +54,7 @@ class Group {
         return this.group.includes(value);
     }
 
-    // allow user to pre-fill the array using Group.fromIterable()
+    // allow user to pre-fill the array using Group.from(iterable)
     /* YOU CANNOT USE THE 'NEW' KEYWORD WHEN DECLARING GROUPS THROUGH THIS */
 
     static from(collection) {
@@ -63,6 +64,47 @@ class Group {
         }
         return group;
     }
+
+    // 3. Make this Group class from the previous exersize iterable:
+
+    /*
+    The Symbol.iterator method returns an object which immediately calls its next() function.
+    This function must contain DONE (true if nothing more to iterate),
+    and VALUE (what the current value it is testing is).
+    Check for doneness first, if not define what it will do with the value.
+    */
+    [Symbol.iterator]() {
+        let current = 0;
+        let iterable = this.group;
+        let max = this.group.length;
+        return {
+            next() {
+                if(current == max) {
+                    return {done: true};
+                }
+                let value = iterable[current];
+                current++;
+                return {value, done: false};
+            }
+        }
+    }
+
 }
 
-// 3. Make the group class from the previous exersize iterable
+// 4: Create map that can use the name hasOwnProperty without overriding the method
+
+/*
+Note that the 'in' operator searches if a property exists in an object or ANYWHERE in its prototype chain
+The "hasOwnProperty just checks the object itself.
+
+In this case you would simply use a symbol instead of a string as the property name.
+*/
+
+let obj1 = {
+    "property": "yes",
+    "hasOwnProperty": false
+}
+
+let obj2 = {
+    [hasOwnPropertySymbol]() {return "You tell me"}
+}
