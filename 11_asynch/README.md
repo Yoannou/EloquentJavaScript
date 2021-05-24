@@ -20,6 +20,8 @@ Simple example is the built-in function `setTimeout(func, time);`
 
 `setInterval()` is another example of using a callback to make a function run every X amount of milliseconds.
 
+
+
 Callbacks are perfectly loaded when RETREIVING an external resource (script, file, etc) from the network, for example.
 
 // DISPLAY FILE WHEN IT IS FULLY LOADED
