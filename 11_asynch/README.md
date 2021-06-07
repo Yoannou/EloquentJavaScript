@@ -45,3 +45,8 @@ Callbacks are perfectly loaded when RETREIVING an external resource (script, fil
     }
     getFile(myDisplayer);
 ```
+
+
+CROW-TECH NOTES:
+
+Using ES6 modules, I import crow-tech, and a specific roost (big oak).
